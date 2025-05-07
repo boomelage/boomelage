@@ -46,5 +46,4 @@ for dir in */; do
         (cd "$dir" && pip install .)
     else
 ```
-© Radu-Ștefan Briciu
 
