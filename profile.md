@@ -1,5 +1,4 @@
 ## About Me
-I like to think I study mathematics <br>
 
 <!--Email me:  <a href="mailto:radu.briciu@bayes.city.ac.uk">
   <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Arms_of_City%2C_University_of_London.svg" alt="City, University of London" width="20" align="top"/>
