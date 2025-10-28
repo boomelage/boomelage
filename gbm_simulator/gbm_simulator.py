@@ -30,7 +30,8 @@ def plot_gbm(paths, t, output_dir, T, min_log_return, max_log_return, max_densit
         ax2.set_title('Log-Returns Distribution')
         ax2.set_xlabel('Density')
         ax2.set_ylabel('Log-Returns')
-        ax2.set_ylim(min_log_return, max_log_return)
+        ax2_ylim = max(abs(min_log_return),abs(max_log_return))
+        ax2.set_ylim(-ax2_ylim, ax2_ylim)
         ax2.set_xlim(0, max_density * 1.1)
 
     plt.tight_layout()
@@ -70,7 +71,6 @@ if __name__ == '__main__':
     images = []
     for t in range(T + 1):
         images.append(imageio.imread(os.path.join(output_dir, f'gbm_{t:03d}.png')))
-        print(f"{t}/{T}")
-    imageio.mimsave('gbm_evolution.gif', images, fps=10, disposal=2)
+    imageio.mimsave('gbm_evolution.gif', images, fps=10, disposal=2, loop=0)
 
     print(f"Generated {T+1} plots in '{output_dir}' and created gbm_evolution.gif")
