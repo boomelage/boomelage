@@ -74,3 +74,13 @@ if __name__ == '__main__':
     imageio.mimsave('gbm_evolution.gif', images, fps=10, disposal=2, loop=0)
 
     print(f"Generated {T+1} plots in '{output_dir}' and created gbm_evolution.gif")
+
+    # Compress the GIF
+    try:
+        from pygifsicle import optimize
+        print("Compressing GIF...")
+        optimize('gbm_evolution.gif')
+        print("GIF compressed successfully.")
+    except Exception as e:
+        print(f"Could not compress GIF: {e}")
+        print("Please make sure gifsicle is installed and in your PATH.")
