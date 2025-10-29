@@ -27,12 +27,13 @@ def plot_gbm(paths, t, output_dir, T, min_log_return, max_log_return, max_densit
     if t > 0:
         total_log_returns = np.log(paths[t, :] / paths[0, :])
         ax2.hist(total_log_returns, bins=30, orientation='horizontal', density=True)
-        ax2.set_title('Log-Returns Distribution')
-        ax2.set_xlabel('Density')
-        ax2.set_ylabel('Log-Returns')
-        ax2_ylim = max(abs(min_log_return),abs(max_log_return))
-        ax2.set_ylim(-ax2_ylim, ax2_ylim)
-        ax2.set_xlim(0, max_density * 1.1)
+
+    ax2.set_title('Log-Returns Distribution')
+    ax2.set_xlabel('Density')
+    ax2.set_ylabel('Log-Returns')
+    ax2_ylim = max(abs(min_log_return), abs(max_log_return))
+    ax2.set_ylim(-ax2_ylim, ax2_ylim)
+    ax2.set_xlim(0, max_density * 1.1)
 
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, f'gbm_{t:03d}.png'), transparent=True)
