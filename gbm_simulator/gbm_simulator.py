@@ -2,6 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import shutil
 import imageio.v2 as imageio
 
 def generate_gbm(N, T, mu, sigma, S0, r):
@@ -26,7 +27,7 @@ def plot_gbm(paths, t, output_dir, T, min_log_return, max_log_return, max_densit
     # Plot log-returns distribution
     if t > 0:
         total_log_returns = np.log(paths[t, :] / paths[0, :])
-        ax2.hist(total_log_returns, bins=30, orientation='horizontal', density=True)
+        ax2.hist(total_log_returns, bins=int(np.sqrt(total_log_returns.size)), orientation='horizontal', density=True)
 
     ax2.set_title('Log-Returns Distribution')
     ax2.set_xlabel('Density')
@@ -58,9 +59,11 @@ if __name__ == '__main__':
 
     # Calculate log-returns and their limits for fixed axes
     log_returns = np.log(paths[1:, :] / S0)
+
+
     min_log_return = log_returns.min()
     max_log_return = log_returns.max()
-    density, bins = np.histogram(log_returns.flatten(), bins=30, density=True)
+    density, bins = np.histogram(log_returns.flatten(), bins=int(np.sqrt(log_returns.size)), density=True)
     max_density = density.max()
 
     # Generate plots for each time step
@@ -75,6 +78,9 @@ if __name__ == '__main__':
     imageio.mimsave('gbm_evolution.gif', images, fps=10, disposal=2, loop=0)
 
     print(f"Generated {T+1} plots in '{output_dir}' and created gbm_evolution.gif")
+
+    if os.path.exists(output_dir):
+        shutil.rmtree(output_dir)
 
     # Compress the GIF
     try:
