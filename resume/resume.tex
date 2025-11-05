@@ -1,0 +1,219 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=blue,
+	pdfborder={0 0 0}
+]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+\renewbibmacro{in:}{}
+\addbibresource{citations.bib}
+
+%\input{glyphtounicode}
+%% Ensure that generate pdf is machine readable/ATS parsable
+%\pdfgentounicode=1
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+%\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+	\vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+	\item\small{
+		{#1 \vspace{-2pt}}
+	}
+}
+
+\newcommand{\resumeSubheading}[4]{
+	\vspace{-2pt}\item
+		\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+			\textbf{#1} & #2 \\
+			\textit{\small#3} & \textit{\small #4} \\
+		\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+	\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textit{\small#1} & \textit{\small #2} \\
+	\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+	\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\small#1 & #2 \\
+	\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\setlist[enumerate]{label=\alph*.}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{enumerate}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{enumerate}}
+\newcommand{\resumeItemListStart}{\begin{enumerate}}
+\newcommand{\resumeItemListEnd}{\end{enumerate}\vspace{-5pt}}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+% Align bibliography entries with other section content
+\defbibenvironment{bibliography}
+  {\begin{enumerate}[leftmargin=0.15in,label={},itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]}
+  {\end{enumerate}}
+  {\item}
+
+%--------------------------------
+%%%%%%  RESUME STARTS HERE %%%%%%
+
+\begin{document}
+
+\vfill
+\begin{tabularx}{\linewidth}{@{} C @{}}
+	\Huge{Radu Briciu} \\[7.5pt]
+	\href{https://github.com/boomelage}{\raisebox{-0.05\height}\faGithub\ boomelage} \ $|$ \ 
+	\href{https://linkedin.com/in/radusbriciu}{\raisebox{-0.05\height}\faLinkedin\ radusbriciu} \ $|$ \ 
+	%\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
+	\href{mailto:radusbriciu@outlook.com}{\raisebox{-0.05\height}\faEnvelope \ radusbriciu@outlook.com} \ $|$ \ 
+	\href{tel:+40730761672}{\raisebox{-0.05\height}\faMobile \ +40 (0) 730 761 672} \\
+\end{tabularx}
+
+\vfill
+
+%-----------EDUCATION-----------
+\section{Education}
+	\resumeSubHeadingListStart
+		\resumeSubheading
+			{Bayes Business School (formerly Cass)}{City of London, United Kingdom}
+			{City, University of London - Postgraduate Diploma}{Sept. 2023 -- Jun. 2025}
+		\resumeSubheading
+			{Westminster Business School}{Westminster, London, United Kingdom}
+			{University of Westminster - Bachelor of Science (with honours)}{Aug. 2019 -- Jun. 2023}
+	\resumeSubHeadingListEnd
+
+\vfill
+
+%-----------Experience-----------
+\section{Experience}
+	\resumeSubHeadingListStart
+	\resumeSubheading
+		{Finance \& Operations Intern}{London, United Kingdom}
+		{Novo Nordisk UK Ltd}{Aug. 2021 - Aug. 2022}
+		\resumeItemListStart
+			\resumeItem{Model building for 'Sales vs Target' and cost variance analysis}
+			\resumeItem{CRM data cleaning}
+			\resumeItem{Customer identification data collection and cleaning}
+			\resumeItem{Competitor price data collection}
+			\resumeItem{Accounts consolidation}
+		\resumeItemListEnd
+		My employment was in the Finance \& Operations department which handles business analytics, management accounting, tax strategy, supply chain management, event planning, sales frontline incentives, commercial IT, CRM systems, and database management. The work placement was split between in two halves working for the 'Commercial Excellence' and 'Business Finance Analytics and Pricing' teams. 
+		
+		My role in Commercial Excellence was to support the team in collecting, synthesizing, and presenting business analytics data relating to market dynamics, brand performance, and customer identification. While working for the Business Finance Analytics and Pricing team, my role was to verify and consolidate financial accounts, automate periodic tasks using data models, and offer support in analyzing financial performance.
+		
+	\resumeSubheading
+		{Intern}{Bucharest, Romania}
+		{Bristol-Myers Squibb}{Jun. - Jul. 2018}
+		\resumeItemListStart
+			\resumeItem{Database management}
+			\resumeItem{Consolidation of notes}
+			\resumeItem{Basic analysis of data}
+			\resumeItem{Documentation of archives}
+			\resumeItem{Planning consolidation}
+		\resumeItemListEnd
+		
+	\resumeSubHeadingListEnd
+
+\vfill
+
+%-----------Projects-----------
+
+\section{Projects}
+	\resumeSubHeadingListStart
+		\resumeProjectHeading{prettymath -- a \LaTeX \, package for mathematical notes}{\texttt{\href{https://github.com/boomelage/prettymath}{git@github.com:boomelage/prettymath.git}}}
+		
+		\resumeProjectHeading{Efficient Frontier Optimization}{\texttt{\href{https://github.com/boomelage/ef-optimization.git}{git@github.com:boomelage/ef-optimization}}}
+		
+		\resumeProjectHeading{Basic Web-Based Tetris}{\texttt{\url{https://free-tetris.online}}}
+	\resumeSubHeadingListEnd
+
+\vfill 
+
+%-----------Publications-----------
+
+\section{Publications}
+
+\begin{refsection}[citations.bib]
+	\nocite{*}
+	\printbibliography[heading=none]
+\end{refsection}
+
+\vfill
+
+%-----------Courses-----------
+\section{Classes}
+	\begin{itemize}[leftmargin=0.15in, label={}]
+		\small{\item{
+		\vspace{1mm}
+		
+		\textbf{Courses}{\tiny: Advanced Corporate Finance -- Applied Machine Learning -- Asset Pricing -- Blockchain, Cryptocurrencies and Decentralized Finance -- Corporate Finance -- Corporate Financial Accounting -- Derivatives -- Development Economics -- Econometrics of Financial Markets -- Financial Modelling and Statistics -- Fixed Income -- Foundations of Econometrics -- Global Business Environment -- Introduction to Finance -- Introduction to Financial Markets -- Investments and Portfolio Management -- Law and the Business -- Mathematics for Finance -- Money Banking and Financial Markets -- Numerical Methods: Applications -- Polylang German 1 -- Professional and Research Skills for Finance -- Programming for Quants -- Risk Analysis -- Risk Management -- Securities Analysis -- Stochastic Modelling Methods in Finance -- Strategic Perspectives for Finance and Accounting}
+		}}
+	\end{itemize}
+
+\vfill
+
+%-----------Skill and Interests-----------
+\section{Skills \& Interests}
+	\begin{itemize}[leftmargin=0.15in, label={}]
+		\small{\item{
+		\vspace{1mm}
+		\textbf{Skills}{: Machine Learning -- \texttt{Python} -- MATLAB -- \LaTeX -- MS Office -- Elementary HTML -- Power Query} \\
+		\vspace{1mm}
+		\textbf{Interests}{: Computer systems, programs, and games -- History -- Politics -- Financial markets -- Economics} \\
+		\vspace{1mm}
+
+		}}
+	\end{itemize}
+
+\vfill
+
+\hfill \tiny This resume is open \href{https://github.com/boomelage/resume/blob/332e0604438190353193e518abbe5510c0327e06/resume/resume.tex}{source}
+
+\end{document}
