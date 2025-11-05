@@ -28,7 +28,7 @@ def plot_gbm(paths, t, output_dir, T, min_log_return, max_log_return, max_densit
     # Plot log-returns distribution
     if t > 0:
         total_log_returns = np.log(paths[t, :] / paths[0, :])
-        ax2.hist(total_log_returns, bins=int(np.sqrt(total_log_returns.size)), orientation='horizontal', density=True)
+        ax2.hist(total_log_returns, bins=int(np.sqrt(total_log_returns.size)), orientation='horizontal', density=True, color = "green")
 
     ax2.set_title('Log-Returns\nDistribution')
     ax2.set_xlabel('Density')
