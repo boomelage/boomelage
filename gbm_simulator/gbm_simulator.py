@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import os
 import shutil
 import imageio.v2 as imageio
+from joblib import Parallel, delayed
 
 def generate_gbm(N, T, mu, sigma, S0, r):
     dt = 1.0 / T
@@ -67,9 +68,13 @@ if __name__ == '__main__':
     max_density = density.max()
 
     # Generate plots for each time step
-    for t in range(T + 1):
-        plot_gbm(paths, t, output_dir, T, min_log_return, max_log_return, max_density)
-        print(f"{t}/{T}")
+    print("Rendering frames in parallel...")
+    max_jobs = os.cpu_count() // 4
+    max_jobs = max(1, max_jobs)
+    Parallel(n_jobs=max_jobs, prefer="processes", verbose=5)(
+        delayed(plot_gbm)(paths, t, output_dir, T, min_log_return, max_log_return, max_density)
+        for t in range(T + 1)
+    )
 
     # Create GIF from plots
     images = []
