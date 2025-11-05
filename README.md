@@ -5,3 +5,5 @@
 <div align="center">
   <img src="gbm_simulator/gbm_evolution.gif" alt="GBM Evolution">
 </div>
+
+𝙵𝚒𝚗𝚍 𝚖𝚢 𝚘𝚙𝚎𝚗 [𝚜𝚘𝚞𝚛𝚌𝚎](resume/resume.tex) 𝚛𝚎𝚜𝚞𝚖𝚎 [𝚑𝚎𝚛𝚎](resume/resume.pdf)
