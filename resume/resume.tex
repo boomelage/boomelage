@@ -1,0 +1,220 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=blue,
+	pdfborder={0 0 0}
+]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+\renewbibmacro{in:}{}
+\addbibresource{citations.bib}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+%\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+	\vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+	\item\small{
+		{#1 \vspace{-2pt}}
+	}
+}
+
+\newcommand{\resumeSubheading}[4]{
+	\vspace{-2pt}\item
+		\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+			\textbf{#1} & #2 \\
+			\textit{\small#3} & \textit{\small #4} \\
+		\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+	\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textit{\small#1} & \textit{\small #2} \\
+	\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+	\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\small#1 & #2 \\
+	\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\setlist[enumerate]{label=\alph*.}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{enumerate}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{enumerate}}
+\newcommand{\resumeItemListStart}{\begin{enumerate}}
+\newcommand{\resumeItemListEnd}{\end{enumerate}\vspace{-5pt}}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% Align bibliography entries with other section content
+\defbibenvironment{bibliography}
+  {\begin{enumerate}[leftmargin=0.15in,label={},itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]}
+  {\end{enumerate}}
+  {\item}
+
+%--------------------------------
+%%%%%%  RESUME STARTS HERE %%%%%%
+
+\begin{document}
+
+\vfill
+\begin{tabularx}{\linewidth}{@{} C @{}}
+	\Huge{Radu Briciu} \\[7.5pt]
+	\href{https://github.com/boomelage}{\raisebox{-0.05\height}\faGithub\ boomelage} \ $|$ \
+	\href{https://linkedin.com/in/radusbriciu}{\raisebox{-0.05\height}\faLinkedin\ radusbriciu} \ $|$ \
+	%\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \
+	\href{mailto:radusbriciu@outlook.com}{\raisebox{-0.05\height}\faEnvelope \ radusbriciu@outlook.com} \ $|$ \
+	\href{tel:+40736691611}{\raisebox{-0.05\height}\faMobile \ +40 (0) 736 691 611} \\
+\end{tabularx}
+
+\vfill
+
+%-----------EDUCATION-----------
+\section{Education}
+	\resumeSubHeadingListStart
+		\resumeSubheading
+			{Bayes Business School (formerly Cass)}{City of London, United Kingdom}
+			{City, University of London --- Postgraduate Diploma}{Sept. 2023 -- Jun. 2025}
+		\resumeSubheading
+			{Westminster Business School}{Westminster, London, United Kingdom}
+			{University of Westminster --- Bachelor of Science (with honours)}{Aug. 2019 -- Jun. 2023}
+	\resumeSubHeadingListEnd
+
+
+%-----------Experience-----------
+\section{Experience}
+	\resumeSubHeadingListStart
+	\resumeSubheading
+		{Finance \& Operations Intern}{London, United Kingdom}
+		{Novo Nordisk UK Ltd}{Aug. 2021 -- Aug. 2022}
+		\resumeItemListStart
+			\resumeItem{Completed a 12-month placement split between the `Commercial Excellence' and `Business Finance Analytics and Pricing' teams}
+			\resumeItem{Built `Sales vs Target' and cost variance models and automated periodic reporting tasks}
+			\resumeItem{Collected, synthesized, and presented analytics on market dynamics, brand performance, and customer identification}
+			\resumeItem{Verified and consolidated financial accounts and supported analysis of financial performance}
+			\resumeItem{Cleaned CRM data and collected competitor price data}
+		\resumeItemListEnd
+
+	\resumeSubheading
+		{Intern}{Bucharest, Romania}
+		{Bristol-Myers Squibb}{Jun. -- Jul. 2018}
+		\resumeItemListStart
+			\resumeItem{Managed databases, documented archives, and performed basic data analysis}
+			\resumeItem{Consolidated notes and planning documentation}
+		\resumeItemListEnd
+
+	\resumeSubHeadingListEnd
+
+\vfill
+
+%-----------Projects-----------
+
+\section{Projects}
+	\resumeSubHeadingListStart
+
+		\resumeProjectHeading{\textbf{Machine Learning Option Pricing}}{\texttt{\href{https://github.com/boomelage/machine-learning-option-pricing}{github.com/boomelage/machine-learning-option-pricing}}}
+
+		{\small Neural networks pricing barrier and Asian options on Heston-calibrated SPX data; basis of the publication below.}
+
+		\resumeProjectHeading{\textbf{Realised Volatility}}{\texttt{\href{https://github.com/boomelage/realised-volatility}{github.com/boomelage/realised-volatility}}}
+
+		{\small A statistical enquiry into the measurement of realised volatility using ARMA--GARCH estimation.}
+
+		\resumeProjectHeading{\textbf{Efficient Frontier Optimization}}{\texttt{\href{https://github.com/boomelage/ef-optimization}{github.com/boomelage/ef-optimization}}}
+
+		{\small Markowitz mean--variance portfolio allocation with efficient frontier visualization in Python.}
+
+		\resumeProjectHeading{\textbf{prettymath}}{\texttt{\href{https://github.com/boomelage/prettymath}{github.com/boomelage/prettymath}}}
+
+		{\small \LaTeX{} package wrapping theorem-like statements in colour-coded, cross-referenced boxes for mathematical notes.}
+
+		\resumeProjectHeading{\textbf{Web Tetris}}{\texttt{\href{https://free-tetris.online}{free-tetris.online}}}
+
+		{\small Browser Tetris with levels, scoring, and piece hold, written in vanilla HTML/CSS/JavaScript.}
+
+	\resumeSubHeadingListEnd
+
+\vfill
+
+%-----------Publications-----------
+
+\section{Publications}
+
+\begin{refsection}[citations.bib]
+	\nocite{*}
+	\printbibliography[heading=none]
+\end{refsection}
+
+\vfill
+
+%-----------Courses-----------
+\section{Courses}
+	\begin{itemize}[leftmargin=0.15in, label={}]
+		\small{\item{
+		{\tiny Advanced Corporate Finance -- Applied Machine Learning -- Asset Pricing -- Blockchain, Cryptocurrencies and Decentralized Finance -- Corporate Finance -- Corporate Financial Accounting -- Derivatives -- Development Economics -- Econometrics of Financial Markets -- Financial Modelling and Statistics -- Fixed Income -- Foundations of Econometrics -- Global Business Environment -- Introduction to Finance -- Introduction to Financial Markets -- Investments and Portfolio Management -- Law and the Business -- Mathematics for Finance -- Money Banking and Financial Markets -- Numerical Methods: Applications -- Polylang German 1 -- Professional and Research Skills for Finance -- Programming for Quants -- Risk Analysis -- Risk Management -- Securities Analysis -- Stochastic Modelling Methods in Finance -- Strategic Perspectives for Finance and Accounting}
+		}}
+	\end{itemize}
+
+\vfill
+
+%-----------Skill and Interests-----------
+\section{Skills \& Interests}
+	\begin{itemize}[leftmargin=0.15in, label={}]
+		\small{\item{
+		\vspace{1mm}
+		\textbf{Skills}{: Machine Learning -- \texttt{Python} (QuantLib) -- MATLAB -- PowerShell -- HTML/CSS/JavaScript -- \LaTeX{} -- MS Office \& Power Query} \\
+		\vspace{1mm}
+		\textbf{Interests}{: Computer systems, programs, and games -- History -- Politics -- Financial markets -- Economics} \\
+		\vspace{1mm}
+
+		}}
+	\end{itemize}
+
+\vfill
+
+\hfill \tiny This resume is open \href{https://github.com/boomelage/boomelage/blob/master/resume/resume.tex}{source}
+
+\end{document}
