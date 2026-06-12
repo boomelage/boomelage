@@ -19,6 +19,8 @@
 \usepackage{tabularx}
 \usepackage{fontawesome5}
 \usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+\usepackage{setspace}
+\setlength{\parskip}{0pt}
 
 % ------------ Stylistic Settings ------------
 
@@ -56,6 +58,7 @@
 
 %-------------------------
 % Custom commands
+
 \newcommand{\resumeItem}[1]{
 	\item\small{
 		{#1\vspace{-2pt}}
@@ -86,7 +89,7 @@
 
 % Compact project entry: name, link, description
 \newcommand{\resumeProject}[3]{
-	\vspace{-1pt}\item
+	\vspace{-1pt}\item 
 	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
 		\small\textbf{#1} & #2 \\
 	\end{tabular*}\vspace{-5pt}
@@ -101,7 +104,7 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{enumerate}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{enumerate}}
-\newcommand{\resumeItemListStart}{\begin{enumerate}[noitemsep]}
+\newcommand{\resumeItemListStart}{\begin{enumerate}[itemsep=0pt,parsep=0pt] }
 \newcommand{\resumeItemListEnd}{\end{enumerate}\vspace{-5pt}}
 
 \newcolumntype{C}{>{\centering\arraybackslash}X}
@@ -139,9 +142,7 @@
 			{Westminster Business School}{Westminster, London, United Kingdom}
 			{\fontsize{9.4}{11}\selectfont University of Westminster - Bachelor of Science (with honours)}{Aug. 2019 - Jun. 2023}
 	\resumeSubHeadingListEnd
-	
-	\vspace{0.5em}
-
+\vfill
 
 %-----------Experience-----------
 \section{Experience}
@@ -150,7 +151,7 @@
 		{Finance \& Operations Intern}{London, United Kingdom}
 		{Novo Nordisk UK Ltd}{Aug. 2021 - Aug. 2022}
 		\resumeItemListStart
-			\resumeItem{Completed a 12-month placement split between the `Commercial Excellence' and `Business Finance Analytics and Pricing' teams}
+			\resumeItem{\fontsize{10}{0}\selectfont Completed a 12-month placement split between the `Commercial Excellence' and `Business Finance Analytics and Pricing' teams}
 			\resumeItem{Built `Sales vs Target' and cost variance models and automated periodic reporting tasks}
 			\resumeItem{Collected, synthesized, and presented analytics on market dynamics, brand performance, and customer identification}
 			\resumeItem{Verified and consolidated financial accounts and supported analysis of financial performance}
@@ -207,7 +208,16 @@
 	\nocite{*}
 	\printbibliography[heading=none]
 \end{refsection}
-\vspace{0.5em}
+
+\vfill
+
+%----------- Skills ----------------
+\section{Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+	\small{\item{	
+			Machine Learning - \faPython~\texttt{Python} (QuantLib, NumPy, Pandas, sklearn, keras) -  MATLAB - \LaTeX{} - CLI (PowerShell, Bash, WSL, Git, Github) - Editors (Sublime Text, Vim, VSCode, \TeX studio, JupyterLab) - CLI Agents (Claude Code, Codex, Gemini) - Ollama - BIOS/OS Configuration - HTML/CSS/JavaScript - MS Office \& Power Query
+	}}
+\end{itemize}
 \vfill
 
 %-----------Courses-----------
@@ -217,17 +227,7 @@
 		{\fontsize{6}{6.2}\selectfont Advanced Corporate Finance - Applied Machine Learning - Asset Pricing - Blockchain, Cryptocurrencies and Decentralized Finance - Corporate Finance - Corporate Financial Accounting - Derivatives - Development Economics - Econometrics of Financial Markets - Financial Modelling and Statistics - Fixed Income - Foundations of Econometrics - Global Business Environment - Introduction to Finance - Introduction to Financial Markets - Investments and Portfolio Management - Law and the Business - Mathematics for Finance - Money Banking and Financial Markets - Numerical Methods: Applications - Polylang German 1 - Professional and Research Skills for Finance - Programming for Quants - Risk Analysis - Risk Management - Securities Analysis - Stochastic Modelling Methods in Finance - Strategic Perspectives for Finance and Accounting\par}
 		}}
 	\end{itemize}
-	\vspace{-0.5em}
 
-\vfill
-
-%----------- Skills ----------------
-\section{Skills}
-\begin{itemize}[leftmargin=0.15in, label={}]
-	\small{\item{	
-		Machine Learning - \faPython~\texttt{Python} (QuantLib, NumPy, Pandas, sklearn, keras) -  MATLAB - \LaTeX{} - CLI (PowerShell, Bash, WSL, Git, Github) - Editors (Sublime Text, Vim, VSCode, \TeX studio, JupyterLab) - CLI Agents (Claude Code, Codex, Gemini) - Ollama - BIOS/OS Configuration - HTML/CSS/JavaScript - MS Office \& Power Query
-}}
-\end{itemize}
 \vfill
 
 \hfill \tiny This resume is open \href{https://github.com/boomelage/boomelage/blob/master/resume/resume.tex}{source}
