@@ -32,8 +32,8 @@
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\topmargin}{-.6in}
+\addtolength{\textheight}{1.4in}
 
 \urlstyle{same}
 
@@ -45,6 +45,7 @@
 \titleformat{\section}{
 	\vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\titlespacing*{\section}{0pt}{4pt}{8pt}
 
 %-------------------------
 % Custom commands
@@ -74,6 +75,15 @@
 	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
 		\small#1 & #2 \\
 	\end{tabular*}\vspace{-7pt}
+}
+
+% Compact project entry: name, link, description
+\newcommand{\resumeProject}[3]{
+	\vspace{-1pt}\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\small\textbf{#1} & #2 \\
+	\end{tabular*}\vspace{-5pt}
+	\par{\small #3}\vspace{-5pt}
 }
 
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
@@ -122,6 +132,8 @@
 			{Westminster Business School}{Westminster, London, United Kingdom}
 			{University of Westminster --- Bachelor of Science (with honours)}{Aug. 2019 -- Jun. 2023}
 	\resumeSubHeadingListEnd
+	
+	\vspace{0.5em}
 
 
 %-----------Experience-----------
@@ -155,25 +167,26 @@
 \section{Projects}
 	\resumeSubHeadingListStart
 
-		\resumeProjectHeading{\textbf{Machine Learning Option Pricing}}{\texttt{\href{https://github.com/boomelage/machine-learning-option-pricing}{github.com/boomelage/machine-learning-option-pricing}}}
+		\resumeProject{Machine Learning Option Pricing}{\texttt{\href{https://github.com/boomelage/machine-learning-option-pricing}{github.com/boomelage/machine-learning-option-pricing}}}
+		{Deep neural networks pricing barrier and Asian options on Heston-calibrated SPX surfaces, trained on large simulated grids and benchmarked against QuantLib; basis of the publication below.}
 
-		{\small Neural networks pricing barrier and Asian options on Heston-calibrated SPX data; basis of the publication below.}
+		\resumeProject{Heston Simulation}{\texttt{\href{https://github.com/boomelage/heston-sim}{github.com/boomelage/heston-sim}}}
+		{Semi-analytical Monte Carlo scheme for the Heston stochastic volatility model, using exact non-central chi-squared variance sampling and a trapezoidal integrated-variance update, with a vectorized NumPy implementation.}
 
-		\resumeProjectHeading{\textbf{Realised Volatility}}{\texttt{\href{https://github.com/boomelage/realised-volatility}{github.com/boomelage/realised-volatility}}}
+		\resumeProject{Binomial Option Pricing}{\texttt{\href{https://github.com/boomelage/bopm}{github.com/boomelage/bopm}}}
+		{Derivation of a closed-form expression for the Cox--Ross--Rubinstein binomial model, collapsing the backward lattice recursion into a single discounted binomial sum over terminal payoffs.}
 
-		{\small A statistical enquiry into the measurement of realised volatility using ARMA--GARCH estimation.}
+		\resumeProject{Realised Volatility}{\texttt{\href{https://github.com/boomelage/realised-volatility}{github.com/boomelage/realised-volatility}}}
+		{A statistical enquiry into the measurement of realised volatility, fitting ARMA--GARCH models to high-frequency returns and comparing forecast accuracy across specifications.}
 
-		\resumeProjectHeading{\textbf{Efficient Frontier Optimization}}{\texttt{\href{https://github.com/boomelage/ef-optimization}{github.com/boomelage/ef-optimization}}}
+		\resumeProject{Efficient Frontier Optimization}{\texttt{\href{https://github.com/boomelage/ef-optimization}{github.com/boomelage/ef-optimization}}}
+		{Markowitz mean--variance portfolio allocation in Python with constrained quadratic optimization and efficient-frontier visualization across the risk--return trade-off.}
 
-		{\small Markowitz mean--variance portfolio allocation with efficient frontier visualization in Python.}
+		\resumeProject{prettymath}{\texttt{\href{https://github.com/boomelage/prettymath}{github.com/boomelage/prettymath}}}
+		{\LaTeX{} package wrapping theorem-like statements in colour-coded, cross-referenced boxes, with configurable environments for definitions, theorems, and proofs in mathematical notes.}
 
-		\resumeProjectHeading{\textbf{prettymath}}{\texttt{\href{https://github.com/boomelage/prettymath}{github.com/boomelage/prettymath}}}
-
-		{\small \LaTeX{} package wrapping theorem-like statements in colour-coded, cross-referenced boxes for mathematical notes.}
-
-		\resumeProjectHeading{\textbf{Web Tetris}}{\texttt{\href{https://free-tetris.online}{free-tetris.online}}}
-
-		{\small Browser Tetris with levels, scoring, and piece hold, written in vanilla HTML/CSS/JavaScript.}
+		\resumeProject{Web Tetris}{\texttt{\href{https://free-tetris.online}{free-tetris.online}}}
+		{Browser Tetris with levels, line-clear scoring, piece hold, and ghost preview, written in dependency-free vanilla HTML/CSS/JavaScript.}
 
 	\resumeSubHeadingListEnd
 
@@ -187,16 +200,17 @@
 	\nocite{*}
 	\printbibliography[heading=none]
 \end{refsection}
-
+\vspace{0.5em}
 \vfill
 
 %-----------Courses-----------
 \section{Courses}
 	\begin{itemize}[leftmargin=0.15in, label={}]
 		\small{\item{
-		{\tiny Advanced Corporate Finance -- Applied Machine Learning -- Asset Pricing -- Blockchain, Cryptocurrencies and Decentralized Finance -- Corporate Finance -- Corporate Financial Accounting -- Derivatives -- Development Economics -- Econometrics of Financial Markets -- Financial Modelling and Statistics -- Fixed Income -- Foundations of Econometrics -- Global Business Environment -- Introduction to Finance -- Introduction to Financial Markets -- Investments and Portfolio Management -- Law and the Business -- Mathematics for Finance -- Money Banking and Financial Markets -- Numerical Methods: Applications -- Polylang German 1 -- Professional and Research Skills for Finance -- Programming for Quants -- Risk Analysis -- Risk Management -- Securities Analysis -- Stochastic Modelling Methods in Finance -- Strategic Perspectives for Finance and Accounting}
+		{\fontsize{6}{6.2}\selectfont Advanced Corporate Finance -- Applied Machine Learning -- Asset Pricing -- Blockchain, Cryptocurrencies and Decentralized Finance -- Corporate Finance -- Corporate Financial Accounting -- Derivatives -- Development Economics -- Econometrics of Financial Markets -- Financial Modelling and Statistics -- Fixed Income -- Foundations of Econometrics -- Global Business Environment -- Introduction to Finance -- Introduction to Financial Markets -- Investments and Portfolio Management -- Law and the Business -- Mathematics for Finance -- Money Banking and Financial Markets -- Numerical Methods: Applications -- Polylang German 1 -- Professional and Research Skills for Finance -- Programming for Quants -- Risk Analysis -- Risk Management -- Securities Analysis -- Stochastic Modelling Methods in Finance -- Strategic Perspectives for Finance and Accounting\par}
 		}}
 	\end{itemize}
+	\vspace{-0.5em}
 
 \vfill
 
