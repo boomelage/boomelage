@@ -25,7 +25,7 @@
 
 % ------------ Stylistic Settings ------------
 
-\renewcommand{\familydefault}{\ttdefault}
+%\renewcommand{\familydefault}{\ttdefault}
 
 % Render the \LaTeX and \TeX logos in the default (roman) LaTeX font
 \let\origLaTeX\LaTeX
@@ -183,26 +183,26 @@
 	\resumeSubHeadingListStart
 
 		\resumeProject{Machine Learning Option Pricing}{\texttt{\href{https://github.com/boomelage/machine-learning-option-pricing}{github.com/boomelage/machine-learning-option-pricing}}}
-		{Deep neural networks pricing barrier and Asian options on Heston-calibrated SPX surfaces, trained on large simulated grids and benchmarked against QuantLib; basis of the publication below.}
-
+		{Distillation of option pricing models using feedforward neural networks pricing barrier and average-price options on Heston-calibrated SPX surfaces, trained on large market calibrated parameters and priced with QuantLib; basis of the publication below.}
+		
 		\resumeProject{Heston Simulation}{\texttt{\href{https://github.com/boomelage/heston-sim}{github.com/boomelage/heston-sim}}}
-		{Semi-analytical Monte Carlo scheme for the Heston stochastic volatility model, using exact non-central chi-squared variance sampling and a trapezoidal integrated-variance update, with a vectorized NumPy implementation.}
-
+		{Semi-analytical simulation scheme for the Heston stochastic volatility model, using exact non-central chi-squared variance sampling and a trapezoidal integrated-variance update, with a plain NumPy implementation.}
+		
 		\resumeProject{Binomial Option Pricing}{\texttt{\href{https://github.com/boomelage/bopm}{github.com/boomelage/bopm}}}
-		{Derivation of a closed-form expression for the Cox-Ross-Rubinstein binomial model, collapsing the backward lattice recursion into a single discounted binomial sum over terminal payoffs.}
-
+		{Derivation of a closed-form expression for the Cox--Ross--Rubinstein binomial model, collapsing the backward lattice recursion into a single discounted binomial sum over terminal payoffs.}
+		
 		\resumeProject{Realised Volatility}{\texttt{\href{https://github.com/boomelage/realised-volatility}{github.com/boomelage/realised-volatility}}}
-		{A statistical enquiry into the measurement of realised volatility, fitting ARMA-GARCH models to high-frequency returns and comparing forecast accuracy across specifications.}
-
+		{A statistical enquiry into the measurement of realised volatility, fitting ARMA--GARCH models to high-frequency returns and comparing forecast accuracy across specifications.}
+		
 		\resumeProject{Efficient Frontier Optimization}{\texttt{\href{https://github.com/boomelage/ef-optimization}{github.com/boomelage/ef-optimization}}}
-		{Markowitz mean-variance portfolio allocation in Python with constrained quadratic optimization and efficient-frontier visualization across the risk-return trade-off.}
-
+		{Markowitz mean--variance portfolio allocation in Python with constrained quadratic optimization and efficient-frontier visualization across the risk--return trade-off.}
+		
 		\resumeProject{prettymath}{\texttt{\href{https://github.com/boomelage/prettymath}{github.com/boomelage/prettymath}}}
 		{\LaTeX{} package wrapping theorem-like statements in colour-coded, cross-referenced boxes, with configurable environments for definitions, theorems, and proofs in mathematical notes.}
-
+		
 		\resumeProject{Web Tetris}{\texttt{\href{https://free-tetris.online}{free-tetris.online}}}
 		{Hobby horse browser Tetris with levels, line-clear scoring, piece hold, and ghost preview, written in dependency-free vanilla HTML/CSS/JavaScript.}
-
+		
 	\resumeSubHeadingListEnd
 
 \vfill
@@ -215,7 +215,7 @@
 	\nocite{*}
 	\printbibliography[heading=none]
 \end{refsection}
-
+\vspace*{0.8em}
 \vfill
 
 %----------- Skills ----------------
