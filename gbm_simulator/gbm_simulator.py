@@ -7,6 +7,35 @@ import shutil
 import imageio.v2 as imageio
 from joblib import Parallel, delayed
 
+# CRT terminal palette: phosphor colours for the paths, green for the "screen" chrome
+PHOSPHOR_GREEN = '#33ff66'
+PHOSPHOR_DIM = '#1a8033'
+PHOSPHORS = ['#33ff66', '#ffb000', '#00e5ff', '#ff4fd8', '#b6ff00']
+
+# Applied inside plot_gbm so it also takes effect in the joblib worker processes
+CRT_STYLE = {
+    'font.family': 'serif',
+    'font.serif': ['cmr10'],
+    'mathtext.fontset': 'cm',
+    'axes.unicode_minus': False,  # cmr10 has no Unicode minus glyph
+    'axes.formatter.use_mathtext': True,
+    'font.size': 11,
+    'axes.titlesize': 12,
+    'axes.linewidth': 1.2,
+    'xtick.direction': 'in',
+    'ytick.direction': 'in',
+    'xtick.top': True,
+    'ytick.right': True,
+    'xtick.major.size': 5,
+    'ytick.major.size': 5,
+    'axes.grid': True,
+    'grid.color': PHOSPHOR_DIM,
+    'grid.linestyle': ':',
+    'grid.linewidth': 0.6,
+    'hatch.color': PHOSPHOR_GREEN,
+    'hatch.linewidth': 0.6,
+}
+
 def generate_gbm(N, T, mu, sigma, S0, r):
     dt = 1.0 / T
     Z = np.random.standard_normal((T, N))
@@ -15,50 +44,61 @@ def generate_gbm(N, T, mu, sigma, S0, r):
     return paths
 
 def plot_gbm(paths, t, output_dir, T, min_log_return, max_log_return, max_density):
-    N = paths.shape[1]
+    with plt.rc_context(CRT_STYLE):
+        _plot_gbm(paths, t, output_dir, T, min_log_return, max_log_return, max_density)
+
+def _plot_gbm(paths, t, output_dir, T, min_log_return, max_log_return, max_density):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 6), gridspec_kw={'width_ratios': [3, 1]})
-    outline_effect = [pe.Stroke(linewidth=2, foreground='black'), pe.Normal()]
+    # Dim phosphor halo around a black outline for the axes frame.
+    # Kept opaque: GIF transparency is 1-bit, so soft alpha glows turn into blobs.
+    glow_effect = [
+        pe.Stroke(linewidth=3.5, foreground=PHOSPHOR_DIM),
+        pe.Stroke(linewidth=2, foreground='black'),
+        pe.Normal(),
+    ]
+    # Thin dark edge on text to hide the jaggies from the GIF's 1-bit transparency
+    text_outline = [pe.Stroke(linewidth=1.2, foreground='black'), pe.Normal()]
 
     # Plot paths
+    ax1.set_prop_cycle(color=PHOSPHORS)
     ax1.plot(paths[:t + 1, :], lw=0.5)
-    title1 = ax1.set_title(f'Geometric Brownian Motion\n(t={t})')
-    xlabel1 = ax1.set_xlabel('Time Steps')
-    ylabel1 = ax1.set_ylabel('Price')
+    # Counter is a separate text on a fixed baseline: inside a two-line title, mathtext line
+    # heights vary with the digits and nudge the title up and down between frames
+    ax1.set_title('GEOMETRIC BROWNIAN MOTION', pad=18)
+    counter = ax1.text(0.5, 1.012, f'$t = {t}$', transform=ax1.transAxes, ha='center', va='baseline',
+                       color=PHOSPHOR_GREEN, fontsize=12)
+    ax1.set_xlabel('Time Steps')
+    ax1.set_ylabel('Price')
     ax1.set_xlim(0, T)
-    ax1.set_ylim(0, paths.max())
+    ax1.set_ylim(0, 200)
 
     # Plot log-returns distribution
     if t > 0:
         total_log_returns = np.log(paths[t, :] / paths[0, :])
-        ax2.hist(total_log_returns, bins=int(np.sqrt(total_log_returns.size)), orientation='horizontal', density=True, color = "green")
+        ax2.hist(total_log_returns, bins=int(np.sqrt(total_log_returns.size)), orientation='horizontal', density=True,
+                 facecolor='none', edgecolor=PHOSPHOR_GREEN, hatch='////', linewidth=0.8)
 
-    title2 = ax2.set_title('Log-Returns\nDistribution')
-    xlabel2 = ax2.set_xlabel('Density')
-    ylabel2 = ax2.set_ylabel('Log-Returns')
+    ax2.set_title('LOG-RETURNS\nDISTRIBUTION')
+    ax2.set_xlabel('Density')
+    ax2.set_ylabel('Log-Return')
     ax2_ylim = max(abs(min_log_return), abs(max_log_return))
     ax2.set_ylim(-ax2_ylim, ax2_ylim)
     ax2.set_xlim(0, max_density * 1.1)
 
     for ax in (ax1, ax2):
-        ax.tick_params(colors='white')
+        ax.tick_params(which='both', colors=PHOSPHOR_GREEN)
         for label in ax.get_xticklabels() + ax.get_yticklabels():
-            label.set_color('white')
-            label.set_path_effects(outline_effect)
+            label.set_path_effects(text_outline)
         for spine in ax.spines.values():
-            spine.set_color('white')
-            spine.set_path_effects(outline_effect)
-        ax.xaxis.label.set_color('white')
-        ax.xaxis.label.set_path_effects(outline_effect)
-        ax.yaxis.label.set_color('white')
-        ax.yaxis.label.set_path_effects(outline_effect)
-        ax.title.set_color('white')
-        ax.title.set_path_effects(outline_effect)
+            spine.set_color(PHOSPHOR_GREEN)
+            spine.set_path_effects(glow_effect)
+        for text in (ax.title, ax.xaxis.label, ax.yaxis.label):
+            text.set_color(PHOSPHOR_GREEN)
+            text.set_path_effects(text_outline)
+    counter.set_path_effects(text_outline)
 
-    for text in (title1, xlabel1, ylabel1, title2, xlabel2, ylabel2):
-        text.set_color('white')
-        text.set_path_effects(outline_effect)
-
-    plt.tight_layout()
+    # Fixed margins rather than tight_layout, which re-fits per frame and makes the axes jitter
+    fig.subplots_adjust(left=0.081, right=0.98, bottom=0.093, top=0.905, wspace=0.26)
     plt.savefig(os.path.join(output_dir, f'gbm_{t:03d}.png'), transparent=True)
     plt.close(fig)
 
