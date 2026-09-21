@@ -120,6 +120,17 @@
 % Repository links used in the Projects section
 \newcommand{\ghlink}[1]{\texttt{\href{https://github.com/boomelage/#1}{github.com/boomelage/#1}}}
 
+% Skills / Selected Coursework: two-column invisible table (label | items).
+% \sep is bound to both neighbours with ~ so a line can never start or end with it;
+% wrapping happens only inside multi-word items.
+\newcommand{\sep}{~\textperiodcentered~}
+\newcolumntype{S}{>{\raggedright\arraybackslash}X}
+\newenvironment{labelled}
+	{\tabularx{\linewidth}{@{}l@{\hspace{1.2em}}S@{}}}
+	{\endtabularx}
+\newcommand{\skillRow}[2]{\textbf{#1} & #2 \\[1pt]}
+\newcommand{\courseworkRow}[2]{\textit{#1} & #2 \\[1pt]}
+
 %--------------------------------
 %%%%%%  RESUME STARTS HERE %%%%%%
 
@@ -220,10 +231,13 @@
 	\section{Skills}
 		\begin{itemize}[leftmargin=0.15in, label={}]
 			\small{\item{
-					\textbf{Programming:} \faPython~Python 3 (NumPy, pandas, SciPy, scikit-learn, Keras, QuantLib), MATLAB, \LaTeX{}; exposure to C and Rust \\
-					\textbf{Finance and data tools:} Bloomberg Terminal (OMON, VCUBE, historical data), Excel, Power Query, VBA, OxMetrics, Alpha Vantage API \\
-					\textbf{Tooling:} Git and GitHub, Bash, PowerShell, WSL, Jupyter, AI-assisted development (Claude Code) \\
-					\textbf{Languages:} Romanian (native), English (fluent), German (A1)
+			{\fontsize{9.5}{11}\selectfont
+			\begin{labelled}
+				\skillRow{Programming}{\faPython~Python 3 (NumPy, pandas, SciPy, scikit-learn, Keras, QuantLib)\sep MATLAB\sep \LaTeX{}\sep exposure to C and Rust}
+				\skillRow{Finance and data}{Bloomberg Terminal (OMON, VCUBE, historical data)\sep Excel\sep Power Query\sep VBA\sep OxMetrics\sep Alpha Vantage API}
+				\skillRow{Tooling}{Git and GitHub\sep Bash\sep PowerShell\sep WSL\sep Jupyter}
+				\skillRow{Languages}{Romanian (native)\sep English (fluent)\sep German (A1)}
+			\end{labelled}\par}
 			}}
 		\end{itemize}
 		\vfill
@@ -233,8 +247,10 @@
 		\begin{itemize}[leftmargin=0.15in, label={}]
 			\small{\item{
 			{\fontsize{8}{9.5}\selectfont
-			\textit{Bayes:} Derivatives -- Fixed Income -- Numerical Methods: Applications -- Econometrics of Financial Markets -- Risk Analysis -- Blockchain, Cryptocurrencies and Decentralized Finance \\
-			\textit{Westminster:} Mathematics for Finance -- Financial Modelling and Statistics -- Risk Management -- Investments and Portfolio Management -- Securities Analysis -- Corporate Finance -- Advanced Corporate Finance\par}
+			\begin{labelled}
+				\courseworkRow{Bayes}{Derivatives\sep Fixed Income\sep Numerical Methods: Applications\sep Econometrics of Financial Markets\sep Risk Analysis\sep Blockchain, Cryptocurrencies and Decentralized Finance}
+				\courseworkRow{Westminster}{Mathematics for Finance\sep Financial Modelling and Statistics\sep Risk Management\sep Investments and Portfolio Management\sep Securities Analysis\sep Corporate Finance\sep Advanced Corporate Finance}
+			\end{labelled}\par}
 			}}
 		\end{itemize}
 
