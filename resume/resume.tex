@@ -199,10 +199,11 @@
 	\section{Projects}
 		\resumeSubHeadingListStart
 
-			% TODO: make the heston-calibration repository public before sending this resume, and add
-			%       trading-day count, median implied-vol RMSE and acceptance rate once the runs are regenerated.
+			% Figures from results/heston/calibrations/vol (run 2026-09-18, commit 071205c):
+			%   3,108 accepted / 3,217 attempted trading days (96.6%), median iv_rmse 0.0038.
+			%   Update once the Bates run finishes if you want to quote it too.
 			\resumeProject{Heston and Bates calibration to SPX option trades}{\ghlink{heston-calibration}}
-			{Daily calibration of Heston (1993) and Bates (1996) parameters to CBOE SPX intraday option trades (2012 onward) with QuantLib: one pooled, moneyness-normalised implied-vol surface per trading day, box-constrained Levenberg--Marquardt from multiple data-seeded starts, an implied-vol-space acceptance gate rejecting boundary-pegged fits, and Feller and cross-day stability diagnostics. Hand-built prototype (2024), hardened and refactored with AI-assisted tooling.}
+			{Daily Heston (1993) and Bates (1996) calibration to CBOE SPX intraday option trades (2012--2024) with QuantLib: a pooled, moneyness-normalised implied-vol surface per trading day, box-constrained Levenberg--Marquardt from multiple data-seeded starts, an implied-vol-space acceptance gate rejecting boundary-pegged fits, and Feller and cross-day stability diagnostics. Heston: 3,108 of 3,217 trading days accepted (96.6\%), median implied-vol RMSE 0.38 vol points. Hand-built prototype (2024), hardened with AI-assisted tooling.}
 
 			\resumeProject{ML option pricing (dissertation)}{\ghlink{machine-learning-option-pricing}}
 			{Feed-forward networks trained to approximate QuantLib Heston prices of barrier and Asian options on SPX, with training data generated from about 1,600 historical Heston calibrations (2012--2024); pricing errors below 1\% at up to 99.8\% lower computation time. Basis of the working paper below.}
