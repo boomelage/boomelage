@@ -15,8 +15,9 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \usepackage{fontawesome5}
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
 \usepackage{setspace}
+\usepackage[backend=biber,style=authoryear,sorting=ynt,maxbibnames=2]{biblatex}
+\addbibresource{refs-resume.bib}
 \setlength{\parskip}{0pt}
 
 % ------------ Stylistic Settings ------------
@@ -91,7 +92,7 @@
 
 % Compact project entry: name, link, description
 \newcommand{\resumeProject}[3]{
-	\vspace{-1pt}\item 
+	\vspace{-1pt}\item
 	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
 		\small\textbf{#1} & #2 \\
 	\end{tabular*}\vspace{-5pt}
@@ -117,6 +118,9 @@
   {\end{enumerate}}
   {\item}
 
+% Repository links used in the Projects section
+\newcommand{\ghlink}[1]{\texttt{\href{https://github.com/boomelage/#1}{github.com/boomelage/#1}}}
+
 %--------------------------------
 %%%%%%  RESUME STARTS HERE %%%%%%
 
@@ -124,115 +128,119 @@
 
 	\vfill
 	\begin{tabularx}{\linewidth}{@{} C @{}}
-		\Huge{Radu Briciu} \\ \small{BSc,  PgDip} \\[7.5pt]
-		\href{https://github.com/boomelage}{\raisebox{-0.05\height}\faGit \! \texttt{boomelage}} $|$ 
-		\href{https://linkedin.com/in/radusbriciu}{\raisebox{-0.05\height}\faLinkedinIn \texttt{/radusbriciu}}  $|$ 
-		%\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com}  $|$ 
-		\href{mailto:radusbriciu@outlook.com}{\raisebox{-0.05\height}\faInbox \ \texttt{radusbriciu@outlook.com}}  $|$ 
+		\Huge{Radu Briciu} \\ \small{BSc,  PgDip} \\[4pt]
+		\small{Bucharest, Romania $|$ EU citizen (no work permit required in the EU)} \\[4pt]
+		\href{https://github.com/boomelage}{\raisebox{-0.05\height}\faGit \! \texttt{boomelage}} $|$
+		\href{https://linkedin.com/in/radusbriciu}{\raisebox{-0.05\height}\faLinkedinIn \texttt{/radusbriciu}}  $|$
+		\href{mailto:radusbriciu@outlook.com}{\raisebox{-0.05\height}\faInbox \ \texttt{radusbriciu@outlook.com}}  $|$
 		\href{tel:+40736691611}{\raisebox{-0.05\height}\faPhone \ \texttt{+40 (0) 736 691 611}} \\
 	\end{tabularx}
 	\vfill
-	
+
+	%-----------PROFILE-----------
+	\section{Profile}
+		\begin{itemize}[leftmargin=0.15in, label={}]
+			\small{\item{
+				% Swap the last sentence per application. Alternative for developer roles:
+				%   "Seeking a quantitative developer or financial software engineering role."
+				Finance graduate with two years of self-directed work on stochastic-volatility calibration and derivatives pricing in Python and QuantLib, 
+				a working paper on neural-network option pricing, and a twelve-month placement in pharmaceutical business finance. Seeking a market risk, model validation, 
+				valuation or quantitative development analyst role.
+			}}
+		\end{itemize}
+		\vfill
+
 	%-----------EDUCATION-----------
 	\section{Education}
 		\resumeSubHeadingListStart
 			\resumeSubheading
 				{Postgraduate Diploma in Quantitative Finance}{City  of London, United Kingdom}
 				{\fontsize{9.4}{11}\selectfont Bayes Business School (formerly Cass) -- City, University of London}{Sept. 2023 --- Jun. 2025}
+				\resumeItemListStart
+					\resumeItem{Dissertation: \textit{Neural Networks for Exotic Option Pricing}, supervised by Prof.\ Ale\v{s} \v{C}ern\'y; published as an SSRN working paper (see below)}
+				\resumeItemListEnd
 			\resumeSubheading
-				{Bachelor of Science in Finance (with honours)}{Westminster, United Kingdom}
+				{Bachelor of Science in Finance, Upper Second Class Honours}{Westminster, United Kingdom}
 				{\fontsize{9.4}{11}\selectfont Westminster Business School -- University of Westminster}{Aug. 2019 --- Jun. 2023}
+				\resumeItemListStart
+					\resumeItem{Sandwich degree with a twelve-month placement; Mathematics for Finance 82\%, Financial Modelling and Statistics 75\%, Investments and Portfolio Management 75\%, Dissertation 73\%}
+				\resumeItemListEnd
 		\resumeSubHeadingListEnd
 		\vfill
-	
+
 	%-----------Experience-----------
 	\section{Experience}
 		\resumeSubHeadingListStart
 		\resumeSubheading
-			{Finance \& Operations Intern}{London, United Kingdom}
+			{Finance \& Operations Placement}{London, United Kingdom}
 			{Novo Nordisk UK Ltd}{Aug. 2021 --- Aug. 2022}
 			\resumeItemListStart
-				\resumeItem{Completed a 12-month placement split between the `Commercial Excellence' and `Business Finance Analytics and Pricing' teams}
-				\resumeItem{Built `Sales vs Target' and cost variance models and automated periodic reporting tasks}
-				\resumeItem{Collected, synthesized, and presented analytics on market dynamics, brand performance, and customer identification}
-				\resumeItem{Verified and consolidated financial accounts and supported analysis of financial performance}
-				\resumeItem{Cleaned CRM data and collected competitor price data}
+				\resumeItem{Twelve-month industrial placement split between the Commercial Excellence and Business Finance Analytics \& Pricing teams}
+				\resumeItem{Built sales-versus-target and cost-variance models in Excel and Power Query, and automated recurring reporting with VBA}
+				\resumeItem{Analysed market dynamics, brand performance and customer segmentation and presented findings to both teams; reconciled financial accounts, cleaned CRM data and collected competitor prices}
 			\resumeItemListEnd
-	
-		\resumeSubheading
-			{Intern}{Bucharest, Romania}
-			{Bristol-Myers Squibb}{Jun. --- Jul. 2018}
-			\resumeItemListStart
-				\resumeItem{Managed databases, documented archives, and performed basic data analysis}
-				\resumeItem{Consolidated notes and planning documentation}
-			\resumeItemListEnd
-	
+
 		\resumeSubHeadingListEnd
-	
+
 		\vfill
-	
+
 	%-----------Projects-----------
-	
+
 	\section{Projects}
 		\resumeSubHeadingListStart
-	
-			\resumeProject{Machine Learning Option Pricing}{\texttt{\href{https://github.com/boomelage/machine-learning-option-pricing}{github.com/boomelage/machine-learning-option-pricing}}}
-			{Distillation of option pricing models using feedforward neural networks pricing barrier and average-price options on Heston-calibrated SPX surfaces, trained on large market calibrated parameters and priced with QuantLib; basis of the publication below.}
-			
-			\resumeProject{Heston Simulation}{\texttt{\href{https://github.com/boomelage/heston-sim}{github.com/boomelage/heston-sim}}}
-			{Semi-analytical simulation scheme for the Heston stochastic volatility model, using exact non-central chi-squared variance sampling and a trapezoidal integrated-variance update, with a plain NumPy implementation.}
-			
-			\resumeProject{Binomial Option Pricing}{\texttt{\href{https://github.com/boomelage/bopm}{github.com/boomelage/bopm}}}
-			{Derivation of a closed-form expression for the Cox--Ross--Rubinstein binomial model, collapsing the backward lattice recursion into a single discounted binomial sum over terminal payoffs.}
-			
-			\resumeProject{Realised Volatility}{\texttt{\href{https://github.com/boomelage/realised-volatility}{github.com/boomelage/realised-volatility}}}
-			{A statistical enquiry into the measurement of realised volatility, fitting ARMA--GARCH models to high-frequency returns and comparing forecast accuracy across specifications.}
-			
-			\resumeProject{Efficient Frontier Optimization}{\texttt{\href{https://github.com/boomelage/ef-optimization}{github.com/boomelage/ef-optimization}}}
-			{Markowitz mean--variance portfolio allocation in Python with constrained quadratic optimization and efficient-frontier visualization across the risk--return trade-off.}
-			
-			\resumeProject{prettymath}{\texttt{\href{https://github.com/boomelage/prettymath}{github.com/boomelage/prettymath}}}
-			{\LaTeX{} package wrapping theorem-like statements in colour-coded, cross-referenced boxes, with configurable environments for definitions, theorems, and proofs in mathematical notes.}
-			
-			\resumeProject{Web Tetris}{\texttt{\href{https://free-tetris.online}{free-tetris.online}}}
-			{Hobby horse browser Tetris with levels, line-clear scoring, piece hold, and ghost preview, written in dependency-free vanilla HTML/CSS/JavaScript.}
-			
+
+			% TODO: make the heston-calibration repository public before sending this resume, and add
+			%       trading-day count, median implied-vol RMSE and acceptance rate once the runs are regenerated.
+			\resumeProject{Heston and Bates calibration to SPX option trades}{\ghlink{heston-calibration}}
+			{Daily calibration of Heston (1993) and Bates (1996) parameters to CBOE SPX intraday option trades (2012 onward) with QuantLib: one pooled, moneyness-normalised implied-vol surface per trading day, box-constrained Levenberg--Marquardt from multiple data-seeded starts, an implied-vol-space acceptance gate rejecting boundary-pegged fits, and Feller and cross-day stability diagnostics. Hand-built prototype (2024), hardened and refactored with AI-assisted tooling.}
+
+			\resumeProject{ML option pricing (dissertation)}{\ghlink{machine-learning-option-pricing}}
+			{Feed-forward networks trained to approximate QuantLib Heston prices of barrier and Asian options on SPX, with training data generated from about 1,600 historical Heston calibrations (2012--2024); pricing errors below 1\% at up to 99.8\% lower computation time. Basis of the working paper below.}
+
+			\resumeProject{Heston simulation}{\ghlink{heston-sim}}
+			{Derivation and NumPy implementation of the Broadie--Kaya (2006) exact-variance scheme with Andersen's (2008) trapezoidal integrated-variance approximation, following Prof.\ Ioannis Kyriakou's lectures: exact non-central chi-squared variance draws and a closed-form log-price update.}
+
+			\resumeProject{Realised volatility}{\ghlink{realised-volatility}}
+			{Realised variance of JPM from one-minute prices (2006--2009) at 1, 5, 10, 15-minute and daily frequencies in pandas, compared against GARCH(1,1) conditional variance estimated in OxMetrics.}
+
 		\resumeSubHeadingListEnd
-	
+
 		\vfill
-	
+
 	%-----------Publications-----------
-	
+
 	\section{Publications}
-	
-		\begin{refsection}[citations.bib]
+
+		\begin{refsection}[refs-resume.bib]
 			\nocite{*}
 			\printbibliography[heading=none]
 		\end{refsection}
-		\vspace*{0.75em}
 		\vfill
-		
+
 	%----------- Skills ----------------
 	\section{Skills}
 		\begin{itemize}[leftmargin=0.15in, label={}]
-			\small{\item{	
-					Machine Learning -- \faPython~\texttt{Python} (QuantLib, NumPy, Pandas, sklearn, keras) --  MATLAB -- \LaTeX{} \\
-					CLI (PowerShell, Bash, WSL, Git, Github) -- Editors (Sublime Text, Vim, VSCode, \TeX studio, JupyterLab) \\ 
-					CLI Agents (Claude Code, Codex, Gemini) -- Bloomberg Terminal (VCUBE, OMON, Historical Data) -- Ollama \\ AlphaVantage API -- BIOS/OS Configuration -- MS Office \& Power Query
+			\small{\item{
+					\textbf{Programming:} \faPython~Python 3 (NumPy, pandas, SciPy, scikit-learn, Keras, QuantLib), MATLAB, \LaTeX{}; exposure to C and Rust \\
+					\textbf{Finance and data tools:} Bloomberg Terminal (OMON, VCUBE, historical data), Excel, Power Query, VBA, OxMetrics, Alpha Vantage API \\
+					\textbf{Tooling:} Git and GitHub, Bash, PowerShell, WSL, Jupyter, AI-assisted development (Claude Code) \\
+					\textbf{Languages:} Romanian (native), English (fluent), German (A1)
 			}}
 		\end{itemize}
 		\vfill
-	
+
 	%-----------Courses-----------
-	\section{Courses}
+	\section{Selected Coursework}
 		\begin{itemize}[leftmargin=0.15in, label={}]
 			\small{\item{
-			{\fontsize{7}{6.2}\selectfont Advanced Corporate Finance -- Applied Machine Learning -- Asset Pricing -- Blockchain, Cryptocurrencies and Decentralized Finance -- Corporate Finance -- Corporate Financial Accounting -- Derivatives -- Development Economics -- Econometrics of Financial Markets -- Financial Modelling and Statistics -- Fixed Income -- Foundations of Econometrics -- Global Business Environment -- Introduction to Finance -- Introduction to Financial Markets -- Investments and Portfolio Management -- Law and the Business -- Mathematics for Finance -- Money Banking and Financial Markets \\ Numerical Methods: Applications -- Polylang German 1 -- Professional and Research Skills for Finance -- Programming for Quants -- Risk Analysis \\ Risk Management -- Securities Analysis -- Stochastic Modelling Methods in Finance -- Strategic Perspectives for Finance and Accounting\par}
+			{\fontsize{8}{9.5}\selectfont
+			\textit{Bayes:} Derivatives -- Fixed Income -- Numerical Methods: Applications -- Econometrics of Financial Markets -- Risk Analysis -- Blockchain, Cryptocurrencies and Decentralized Finance \\
+			\textit{Westminster:} Mathematics for Finance -- Financial Modelling and Statistics -- Risk Management -- Investments and Portfolio Management -- Securities Analysis -- Corporate Finance -- Advanced Corporate Finance\par}
 			}}
 		\end{itemize}
-	
+
 		\vfill
-	
+
 	\hfill \tiny This resume is open \href{https://github.com/boomelage/boomelage/blob/master/resume/resume.tex}{source}
 
 \end{document}
